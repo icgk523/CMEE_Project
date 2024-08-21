@@ -14,6 +14,7 @@ library(parallel)
 library(sysfonts)
 library(showtext)
 library(cowplot)
+source("rsquared_gls_function.R")
 
 calibrated_phylogeny = read.tree("../data/phylogeny/calibrated_tree.nwk"); calibrated_phylogeny$tip.label = sub("_", " ", calibrated_phylogeny$tip.label) # Load entire phylogeny and fix naming
 masses = read.csv("../data/mass/Insect_Masses_and_Genomes.csv")[,-1] # Load insect masses without ID column
@@ -30,6 +31,98 @@ masses$Log_Mean_Converted_Value = log10(masses$Mean_Converted_Value)
 
 masses <- masses %>% group_by(Accession) %>% filter(!is.na(Annotation.BUSCO.Complete) | n() == 1) %>% slice(1) %>% ungroup()
 masses = subset(masses, Assembly.Level == "Chromosome" | Assembly.Level == "Complete Genome")
+
+# Custom Fonts for Plots
+font_add(family = "lm", regular = "/usr/share/texlive/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf")
+font_add(family = "lm-bold", regular = "/usr/share/texmf/fonts/opentype/public/lm/lmroman10-bold.otf")
+showtext_auto()
+
+# Mass Distributions
+log_plot = ggplot(masses) + 
+  geom_histogram(aes(x = Log_Mean_Converted_Value, fill = "Log Body Mass"), 
+                 color = "black", 
+                 alpha = 0.8) +
+  theme_classic() +
+  labs(x = "Body Mass Values", y = "Number of Species", fill = "Mass Type") +
+  facet_wrap(~ Order) +
+  scale_fill_manual(values = c("Log Body Mass" = "#DC4D10")) +
+  theme(
+    legend.position = "top", 
+    legend.title = element_blank(),
+    text = element_text(family = "lm-bold"),               # Applies font family to all text
+    plot.title = element_text(family = "lm-bold"),         # Title text
+    plot.subtitle = element_text(family = "lm-bold"),      # Subtitle text
+    plot.caption = element_text(family = "lm-bold"),       # Caption text
+    axis.title = element_text(family = "lm-bold"),         # Axis titles
+    axis.text = element_text(family = "lm-bold"),          # Axis text
+    legend.text = element_text(family = "lm-bold"),        # Legend text
+    strip.text = element_text(family = "lm-bold")          # Facet text
+  )
+normal_plot = ggplot(masses) + 
+  geom_histogram(aes(x = Mean_Converted_Value, fill = "Body Mass"), 
+                 color = "black", 
+                 alpha = 0.8) +
+  theme_classic() +
+  labs(x = "Body Mass Values", y = "Number of Species", fill = "#109FDC") +
+  facet_wrap(~ Order) +
+  scale_fill_manual(values = c("Body Mass" = "#109FDC")) +
+  theme(
+    legend.position = "top", 
+    legend.title = element_blank(),
+    text = element_text(family = "lm-bold"),               # Applies font family to all text
+    plot.title = element_text(family = "lm-bold"),         # Title text
+    plot.subtitle = element_text(family = "lm-bold"),      # Subtitle text
+    plot.caption = element_text(family = "lm-bold"),       # Caption text
+    axis.title = element_text(family = "lm-bold"),         # Axis titles
+    axis.text = element_text(family = "lm-bold"),          # Axis text
+    legend.text = element_text(family = "lm-bold"),        # Legend text
+    strip.text = element_text(family = "lm-bold")          # Facet text
+  )
+combined_plot <- egg::ggarrange(normal_plot, log_plot, ncol = 2)
+
+# Genome Size Distributions
+log_plot = ggplot(masses) + 
+  geom_histogram(aes(x = Log.Assembly.Stats.Total.Sequence.Length, fill = "Log Genome Size"), 
+                 color = "black", 
+                 alpha = 0.8) +
+  theme_classic() +
+  labs(x = "Genome Size (Nt)", y = "Number of Species", fill = "Genome Type") +
+  facet_wrap(~ Order) +
+  scale_fill_manual(values = c("Log Genome Size" = "#DC4D10")) +
+  theme(
+    legend.position = "top", 
+    legend.title = element_blank(),
+    text = element_text(family = "lm-bold"),               # Applies font family to all text
+    plot.title = element_text(family = "lm-bold"),         # Title text
+    plot.subtitle = element_text(family = "lm-bold"),      # Subtitle text
+    plot.caption = element_text(family = "lm-bold"),       # Caption text
+    axis.title = element_text(family = "lm-bold"),         # Axis titles
+    axis.text = element_text(family = "lm-bold"),          # Axis text
+    legend.text = element_text(family = "lm-bold"),        # Legend text
+    strip.text = element_text(family = "lm-bold")          # Facet text
+  )
+normal_plot = ggplot(masses) + 
+  geom_histogram(aes(x = Assembly.Stats.Total.Sequence.Length, fill = "Genome Size"), 
+                 color = "black", 
+                 alpha = 0.8) +
+  theme_classic() +
+  labs(x = "Body Mass Values", y = "Number of Species", fill = "#109FDC") +
+  facet_wrap(~ Order) +
+  scale_fill_manual(values = c("Genome Size" = "#109FDC")) +
+  theme(
+    legend.position = "top", 
+    legend.title = element_blank(),
+    text = element_text(family = "lm-bold"),               # Applies font family to all text
+    plot.title = element_text(family = "lm-bold"),         # Title text
+    plot.subtitle = element_text(family = "lm-bold"),      # Subtitle text
+    plot.caption = element_text(family = "lm-bold"),       # Caption text
+    axis.title = element_text(family = "lm-bold"),         # Axis titles
+    axis.text = element_text(family = "lm-bold"),          # Axis text
+    legend.text = element_text(family = "lm-bold"),        # Legend text
+    strip.text = element_text(family = "lm-bold")          # Facet text
+  )
+combined_plot <- egg::ggarrange(normal_plot, log_plot, ncol = 1)
+
 
 ########################################################
 ###### Coleoptera #######
