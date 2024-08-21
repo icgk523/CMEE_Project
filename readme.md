@@ -6,7 +6,10 @@
 ## Table of Contents
 * [Code](#code)
 * [Data](#data)
+* [Results](#results)
 * [HPC](#hpc)
+* [Proposal](#proposal)
+* [Project](#project)
 
 ## Code
 Code directory contains the following R scripts. Please inspect each file before sourcing, as each may require various packages to be installed:
@@ -28,10 +31,10 @@ The data directory contains the following subdirectories and files:
 An empty directory used as a place to output files from the scripts run in code. While the scripts do not necessarily produce outputs here, users including code that does this should specify here as an output location.
 
 ## HPC
-- ```download_genomes.sh```: A script for downloading genomes from the NCBI genomes ftp site from a list of genome annotations.
-- ```make_lastz_chains_job_submission.sh```: An example job script for running the 'make_lastz_chains' genome alignment pipeline from Kirilenko et al. (2023; Science) on the Imperial College London high-performance computer with Hymenoptera genomes.
-- ```toga_job_submission.sh```: An example job script for running the 'TOGA' orthology annotation pipeline from Kirilenko et al. (2023; Science) on the Imperial College London high-performance computer with Lepidoptera genomes.
-- ```output_analysis.py```: A python script for extracting the orthology information from the TOGA '.log' files.
+- **download_genomes.sh**: A script for downloading genomes from the NCBI genomes ftp site from a list of genome annotations.
+- **make_lastz_chains_job_submission.sh**: An example job script for running the 'make_lastz_chains' genome alignment pipeline from Kirilenko et al. (2023; Science) on the Imperial College London high-performance computer with Hymenoptera genomes.
+- **toga_job_submission.sh**: An example job script for running the 'TOGA' orthology annotation pipeline from Kirilenko et al. (2023; Science) on the Imperial College London high-performance computer with Lepidoptera genomes.
+- **output_analysis.py**: A python script for extracting the orthology information from the TOGA '.log' files.
 
 ## Proposal
 - **proposal.tex:** A LaTex document containing the proposal. It creates a Bibliography using the ```bibliography.bib``` file.
