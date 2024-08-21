@@ -16,6 +16,7 @@ library(sysfonts)
 library(showtext)
 library(grid)
 library(cowplot)
+library(piecewiseSEM)
 
 #### Hox Genes ####
 coleoptera_hox = read.table("../data/hox/Coleoptera_HOX_cluster_processed.txt")

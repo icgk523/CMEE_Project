@@ -1,0 +1,94 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage[a4paper,left=2cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{cite}
+\usepackage{booktabs}
+\usepackage{lineno}
+\usepackage{setspace}
+\usepackage{natbib}
+\usepackage{gantt}
+
+
+\begin{document}
+\begin{titlepage}
+\centering\Large
+
+{\LARGE I}MPERIAL {\LARGE C}OLLEGE {\LARGE L}ONDON\\
+\vspace{1in}
+\large
+{\Large MR}ES {\Large C}OMPUTATIONAL {\Large M}ETHODS IN {\Large E}COLOGY AND {\Large E}VOLUTION\\
+\vspace{1in}
+
+\hrule height 0.05cm
+\Large
+\vspace{0.45in}
+\textbf{\LARGE Predicting the Population Fitness of Terrestrial Insects in a Changing Climate}
+\vspace{0.45in}
+\hrule height 0.05cm
+
+\vspace{1in}
+\Large
+\textsc{ Author:\\
+Georgios Kalogiannis\\
+CID: 02431394}\\
+(\textit{g.kalogiannis23@imperial.ac.uk})\\
+\vspace{0.5in}
+\textsc{Supervisors:\\
+Prof. Samraat Pawar;  Dr. Dimitrios-Georgios Kontopoulos}\\
+(\textit{s.pawar@imperial.ac.uk; dgkontopoulos@gmail.com})\\
+
+\vspace{4.5cm}
+\textsc{Department of Life Sciences}\\
+2023
+\end{titlepage}
+\pagebreak
+
+\linenumbers
+\doublespacing
+% \section{Keywords}
+% Climate change; temperature; insect; metabolic response
+%
+\section{Introduction}
+Climate change is leading to significant shifts in temperature on both global and local levels, impacting the balance of ecosystems \citep{Abbass2022Review}. As temperatures rise, they experience changes that have profound effects on organisms inhabiting them. Understanding these changes and the ways they impact species is essential for researchers in biology, ecology, and medical research, as it directly impacts their physiological and homeostatic functions \citep{Seebacher2023Physiology}. 
+
+Insects play an important role in maintaining health and functionality of habitats, by performing critical roles in the ecosystem, such as nutrient recycling and pollination \citep{Belovsky2000Insect}. Along with other invertebrates, they demonstrate a range of responses to temperature changes due to their ectothermic nature, whereby their internal temperature is largely determined by external environmental conditions \citep{Vanbergen2013Threats}. Extreme temperature rises pose challenges for insects, including habitat loss, increases in disease prevalence, and phenological desynchronisation with food plants, which can inhibit their ability to perform their ecological functions. Additionally, temperature is a key factor affecting their metabolic processes, and it is closely linked to their physiological functions, with them unlikely to fulfil bodily functions during large temperature variations \citep{Dukes2009Responses}. Critical processes such as reproduction, growth, and development are influenced by temperature, and thus temperature can have a significant impact on species survival and fitness.  
+
+Metabolic responses are often considered outcomes of predefined biological processes \citep{gillooly2001effects}. It has been thought that the metabolic rate of species is a consequence of biological reactions involving proteins encoded by genes, and is influenced by the length and quantity of nuclear DNA. However, contradictory evidence in literature shows greater support for a mass-specific metabolic rate that is influenced by cell mass instead \citep{Starostova2009Cell}. Recently, there has been evidence suggesting that the function of clustered genes and their characteristics are linked to their metabolic rates \citep{Takemoto2015Proportion}. Thus, as temperature changes, the genetic information of a species can likely contribute to understanding how it will respond to environmental shifts. 
+
+In this project, I will study the population fitness responses of terrestrial insects to temperature changes. Combining whole-genome sequences, existing insect life-history and metabolic trait data, and phylogenetic information, I will map the thermal metabolic response of species to the presence and absence of orthologous genes in their genome. I aim to infer the fitness effects of their loss or gain utilising phylogeny, and hypothesise that the presence of genes leading to more-optimal thermal performance will be preferential and lead to greater species fitness.
+
+\section{Methods}
+Life-history and metabolic trait data will be extracted from the `Global BioTraits Database' \citep{Dell2013Environmental} and compiled from available literature. Reference whole-genome sequences of species will be obtained from the `Genome' database of the National Centre for Biotechnology Information \citep{ncbi2022}, for species with available metabolic trait data, and `Tool to infer Orthologs from Genome Alignments' (TOGA) will be used to identify orthologous genes across the genomes, as well as those lost in species \citep{Bogdan2023Integrating}. Finally, I will utilise the `HyPhy' tool by \cite{Kosakovsky2020HYpothesis} to screen for positive/relaxed selection and fitness effects for species that have lost or gained orthologous genes along their genome.
+
+\section{Budget}
+There is no expenditure anticipated for this project, as it is purely computational. There is a possibility of travelling to Dr. Kontopoulos' facilities in Frankfurt, Germany, and expected costs for such a trip, including transport and accommodation, are approximately £400.
+
+\section{Project Feasibility}
+\begin{gantt}{7}{10}
+    \begin{ganttitle}
+      \titleelement{\textbf{Project Timeline}}{10}
+    \end{ganttitle}
+    \begin{ganttitle}
+      \titleelement{\textbf{Jan}}{1}
+      \titleelement{\textbf{Feb}}{1}
+      \titleelement{\textbf{Mar}}{1}
+      \titleelement{\textbf{Apr}}{1}
+      \titleelement{\textbf{May}}{1}
+      \titleelement{\textbf{Jun}}{1}
+      \titleelement{\textbf{Jul}}{1}
+      \titleelement{\textbf{Aug}}{1}
+      \titleelement{\textbf{Sep}}{1}
+      \titleelement{\textbf{Oct}}{1}
+
+    \end{ganttitle}
+
+    \ganttbar[color=black]{\textbf{Literature Review}}{0}{2}
+    \ganttbar[color=black]{\textbf{Data Collection}}{0.5}{2}
+    \ganttbar[color=black]{\textbf{TOGA implementation}}{1.5}{4}
+    \ganttbar[color=black]{\textbf{HyPhy implementation}}{2.5}{3.5}
+    \ganttbar[color=black]{\textbf{Thesis Writing}}{3}{6}
+  \end{gantt}
+\pagebreak
+\bibliographystyle{agsm}
+\bibliography{bibliography}
+\end{document}

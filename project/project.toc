@@ -1,0 +1,21 @@
+\contentsline {section}{Declaration of Authorship}{i}{Doc-Start}%
+\contentsline {section}{Acknowledgements}{ii}{section*.1}%
+\contentsline {section}{Abstract}{iii}{section*.2}%
+\contentsline {section}{\numberline {1}Introduction}{1}{section.5}%
+\contentsline {section}{\numberline {2}Methods}{3}{section.9}%
+\contentsline {subsection}{\numberline {2.1}Data Compilation}{3}{subsection.10}%
+\contentsline {subsection}{\numberline {2.2}Genomic Analysis}{4}{subsection.11}%
+\contentsline {subsection}{\numberline {2.3}Statistical Analysis}{5}{subsection.12}%
+\contentsline {section}{\numberline {3}Results}{7}{section.14}%
+\contentsline {subsection}{\numberline {3.1}Body mass and genome size weakly scale across insects and some orders}{7}{subsection.15}%
+\contentsline {subsection}{\numberline {3.2}Gene loss is linked to body mass}{8}{subsection.17}%
+\contentsline {subsection}{\numberline {3.3}Body mass affects some Hox genes}{9}{subsection.19}%
+\contentsline {subsection}{\numberline {3.4}Transposable elements scale with body mass in some orders}{10}{subsection.21}%
+\contentsline {section}{\numberline {4}Discussion}{11}{section.23}%
+\contentsline {section}{Code and Data Availability}{15}{section.23}%
+\contentsline {section}{References}{16}{section*.24}%
+\contentsline {section}{Supplementary Information}{23}{section*.25}%
+\contentsline {subsection}{SI 1: Body mass data references}{23}{section*.26}%
+\contentsline {subsection}{SI 2: Conversion equations from size to mass}{25}{section*.29}%
+\contentsline {subsection}{SI 3: Data distributions}{26}{section*.32}%
+\contentsline {subsection}{SI 4: Expanded Hox gene analysis results}{28}{figure.caption.35}%
